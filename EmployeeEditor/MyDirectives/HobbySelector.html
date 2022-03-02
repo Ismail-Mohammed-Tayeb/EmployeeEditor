@@ -1,0 +1,6 @@
+﻿<div>
+    <select ng-change="scopeModel.selectedItemChanged()" required ng-model="scopeModel.selectedHobbyId"
+            ng-options="dataitem.ID as dataitem.Name for dataitem in scopeModel.hobbiesList">
+        <option selected value="" disabled id="text-disabled">Select</option>
+    </select>
+</div>

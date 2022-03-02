@@ -1,0 +1,27 @@
+﻿<div class="modal-open modal-content col-lg-12" ng-controller="EmployeeEditor">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="scopeModel.CloseModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">{{scopeModel.buttonText}} Employee</h4>
+    </div>
+    <div class="modal-body">
+        <p>Employee ID: {{scopeModel.employeeInfo.ID}} </p>
+        <p>
+            Employee Name:
+            <input type="text" ng-model="scopeModel.employeeInfo.Name"
+                   name="name" />
+        </p>
+        <hobby-grid on-directive-ready="onHobbyGridReady"></hobby-grid>
+
+        <hobby-detail-grid on-directive-ready="onHobbyDetailGridReady"></hobby-detail-grid>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="scopeModel.CloseModal()">Close</button>
+        <input type="button" class="btn btn-primary"
+               ng-click="scopeModel.isEdit ? scopeModel.EditEmployee() : scopeModel.AddEmployee()"
+               value="{{scopeModel.buttonText}}" />
+
+    </div>
+</div>

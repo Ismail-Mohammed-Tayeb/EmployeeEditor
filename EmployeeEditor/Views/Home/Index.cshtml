@@ -1,0 +1,62 @@
+﻿<div class="jumbotron">
+    <center>
+        <h1>Employees Home Page</h1>
+        <h3>Show All Employees With Add\Edit Functionality</h3>
+    </center>
+</div>
+
+<div class="row" ng-controller="EmployeeManagmentController">
+    <div class="row">
+        <input class="btn btn-default" type="button" value="Add New Employee" ng-click="scopeModel.openAddModal()" />
+    </div>
+    <br />
+    <div>
+        <input type="text" ng-model="scopeModel.searchVal"
+               placeholder="Search text" />
+        <input class="btn btn-default" type="button"
+               value="Search"
+               ng-click="scopeModel.GetEmployees()" />
+    </div>
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in scopeModel.currentPage">
+                <td>#{{$index + 1}}</td>
+                <td>{{item.ID}}</td>
+                <td>{{item.Name}}</td>
+                <td>
+                    <input class="btn btn-primary" type="button"
+                           name="Edit" value="Edit Employee"
+                           ng-click="scopeModel.openEditModal(item.ID)" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <center>
+        <div class="table">
+            <input ng-hide="scopeModel.currentPageDescription.isFirst"
+                   ng-class="{disabled:!scopeModel.currentPageDescription.isPrevious}"
+                   ng-click="scopeModel.setPage(scopeModel.paginationPagesList[scopeModel.currentPageDescription.title-1])"
+                   class="btn btn-primary" type="button" value="Previous" />
+
+            <input ng-repeat="item in scopeModel.paginationPagesList"
+                   ng-class="{active: scopeModel.currentPageDescription == item}"
+                   ng-click="scopeModel.setPage(item)"
+                   class="btn btn-default" type="button" value="{{item.title+1}}" />
+
+            <input ng-hide="scopeModel.currentPageDescription.isLast"
+                   ng-class="{disabled:!scopeModel.currentPageDescription.isNext}"
+                   ng-click="scopeModel.setPage(scopeModel.paginationPagesList[scopeModel.currentPageDescription.title+1])"
+                   class="btn btn-primary" type="button" value="Next" />
+        </div>
+    </center>
+</div>

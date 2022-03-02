@@ -1,0 +1,39 @@
+﻿<p>
+    Hobbies Table:
+    <button ng-click="scopeModel.AddNewHobby()" type="button" class="btn btn-default">+</button>
+    <h4 ng-show="scopeModel.Hobbies.length == 0">No Hobbies</h4>
+    <table ng-hide="scopeModel.Hobbies.length == 0" class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in scopeModel.Hobbies">
+                <td>#{{$index + 1}}</td>
+                <td>
+                    <input type="text" name="name" ng-model="item.Name" />
+                </td>
+
+                <th>
+                    <button ng-click="scopeModel.RemoveCurrentHobby(item)"
+                            type="button" class="btn btn-default">
+                        X
+                    </button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <h4 ng-hide="scopeModel.ErrorList.length == 0">
+        <label class="label label-default">
+            Error List:
+        </label>
+    </h4>
+    <h4 ng-repeat="element in scopeModel.ErrorList">
+        <label class="label label-danger">
+            {{element}}
+        </label>
+    </h4>
+</p>

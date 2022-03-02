@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @* AngularJS & Bootstrap Imports *@
+    <script src="~/Scripts/angular-1-4-8.js"></script>
+    <script src="~/Scripts/ui-bootstrap-tpls-0.12.1.js"></script>
+
+    @* Main Module Import *@
+    <script src="~/MyViews/MainModule.js"></script>
+
+    @* Constants Import *@
+    <script src="~/MyConstants/FrequencyTypeEnum.js"></script>
+
+    @* Services Import *@
+    <script src="~/MyServices/WepApiService.js"></script>
+    <script src="~/MyServices/ModalService.js"></script>
+    <script src="~/MyServices/PaginationService.js"></script>
+    <script src="~/MyServices/EmployeeWebApiService.js"></script>
+    <script src="~/MyServices/PromisesService.js"></script>
+
+    @* Directives Import *@
+    <script src="~/MyDirectives/HobbyFrequencyTypeSelector.js"></script>
+    <script src="~/MyDirectives/HobbySelector.js"></script>
+    <script src="~/MyDirectives/HobbyGridDirective.js"></script>
+    <script src="~/MyDirectives/HobbyDetailGrid.js"></script>
+
+    @* Views And Editors Imports *@
+    <script src="~/MyViews/EmployeeViews/EmployeeManagmentController.js"></script>
+    <script src="~/MyViews/EmployeeViews/EmployeeEditor.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Vanrise Internship - Employee Editor</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

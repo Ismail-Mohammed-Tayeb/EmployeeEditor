@@ -1,0 +1,6 @@
+﻿<div>
+    <select required ng-model="scopeModel.selectedFrequencyType"
+            ng-options="dataitem.Value as dataitem.Name for dataitem in scopeModel.frequencyTypeEnum">
+        <option selected value="" disabled id="text-disabled">Select</option>
+    </select>
+</div>
